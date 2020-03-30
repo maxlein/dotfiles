@@ -13,6 +13,10 @@ augroup CursorLineOnlyInActiveWindow
     autocmd WinLeave * setlocal nocursorline
 augroup END
 
+call plug#begin('~/.vim/plugged')
+Plug 'https://github.com/altercation/vim-colors-solarized.git'
+call plug#end()
+
 " vim can autodetect this based on $TERM (e.g. 'xterm-256color')
 " but it can be set to force 256 colors
 " set t_Co=256
