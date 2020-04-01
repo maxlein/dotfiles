@@ -74,11 +74,11 @@ set smartcase
 " tab completion for files/bufferss
 set wildmode=longest,list
 set wildmenu
-set mouse+=a " enable mouse mode (scrolling, selection, etc)
-if &term =~ '^screen'
-    " tmux knows the extended mouse mode
-    set ttymouse=xterm2
-endif
+" set mouse+=a " enable mouse mode (scrolling, selection, etc)
+" if &term =~ '^screen'
+"    " tmux knows the extended mouse mode
+"    set ttymouse=xterm2
+" endif
 
 "--------------------
 " Misc configurations
@@ -181,7 +181,7 @@ nnoremap <Leader>m :SyntasticToggleMode<CR>
 map <Space> <Plug>(easymotion-prefix)
 
 " incsearch
-map / <Plug>(incsearch-forward)
+" map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
