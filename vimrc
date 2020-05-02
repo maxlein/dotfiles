@@ -13,6 +13,12 @@ augroup CursorLineOnlyInActiveWindow
     autocmd WinLeave * setlocal nocursorline
 augroup END
 
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
 call plug#end()
@@ -210,3 +216,5 @@ let g:markdown_fenced_languages = [
     \ 'go',
 \]
 let g:markdown_syntax_conceal = 0
+
+

@@ -12,3 +12,6 @@
     ~/.config/nvim/init.vim: vimrc
     ~/.vim/colors/solarized.vim: solarized.vim
 
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - [sudo apt install -y neovim, installing neovim]    
