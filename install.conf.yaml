@@ -6,11 +6,12 @@
 - clean: ['~', '~/.config']
 
 - link:
-    ~/.dotfiles: ''
     ~/.vimrc: vimrc
     ~/.config/nvim/init.vim: vimrc
     ~/.vim/colors/solarized.vim: solarized.vim
     ~/.gitconfig: gitconfig
+    ~/.config/powerline/colorschemes/default.json: powerline/colorschemes/default.json:
+    ~/.config/powerline/themes/shell/default_leftonly.json: powerline/themes/shell/default_leftonly.json
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
