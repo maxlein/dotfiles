@@ -7,8 +7,12 @@
 
 - link:
     ~/.dotfiles: ''
-    ~/.vim: vim
     ~/.vimrc: vimrc
     ~/.config/nvim/init.vim: vimrc
     ~/.vim/colors/solarized.vim: solarized.vim
+    ~/.gitconfig: gitconfig
 
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - [sudo apt install -y neovim, installing neovim]  
+  - [sudo apt install powerline powerline-gitstatus vim-airline]  
