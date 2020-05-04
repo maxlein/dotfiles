@@ -2,6 +2,7 @@
     link:
       create: true
       relink: true
+      force: true
 
 - clean: ['~', '~/.config']
 
@@ -10,10 +11,12 @@
     ~/.config/nvim/init.vim: vimrc
     ~/.vim/colors/solarized.vim: solarized.vim
     ~/.gitconfig: gitconfig
-    ~/.config/powerline/colorschemes/default.json: powerline/colorschemes/default.json:
-    ~/.config/powerline/themes/shell/default_leftonly.json: powerline/themes/shell/default_leftonly.json
+    ~/.config/powerline/: 
+        glob: true
+        path: powerline/*
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [sudo apt install -y neovim, installing neovim]  
-  - [sudo apt install powerline powerline-gitstatus vim-airline]  
+  - [sudo apt install vim-airline]  
+  - [bash powerline_install.sh]  
