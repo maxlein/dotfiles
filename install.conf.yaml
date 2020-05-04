@@ -18,5 +18,5 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [sudo apt install -y neovim, installing neovim]  
-  - [sudo apt install vim-airline]  
+  - [sudo apt install -y vim-airline]  
   - [bash powerline_install.sh]  
