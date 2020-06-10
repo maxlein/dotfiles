@@ -20,3 +20,4 @@
   - [sudo apt install -y neovim, installing neovim]  
   - [sudo apt install -y vim-airline]  
   - [bash powerline_install.sh]  
+  - [sudo snap install cheat]
