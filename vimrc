@@ -1,4 +1,5 @@
 set nocompatible " not vi compatible
+set encoding=utf8
 
 "------------------
 " Syntax and indent
@@ -19,12 +20,15 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+<<<<<<< HEAD
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+=======
+>>>>>>> d055111e2eddace17333d9137fe3b7634da204f2
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
 call plug#end()
@@ -32,9 +36,19 @@ call plug#end()
 " vim can autodetect this based on $TERM (e.g. 'xterm-256color')
 " but it can be set to force 256 colors
 " set t_Co=256
+
 if has('gui_running')
-    colorscheme solarized
-    let g:lightline = {'colorscheme': 'solarized'}
+
+    try 
+        colorscheme solarized
+        let g:lightline = {'colorscheme': 'solarized'}
+    catch
+    endtry
+
+    set guioptions-=T
+    set guioptions-=e
+    set t_Co=256
+    set guitablabel=%M\ %t
 elseif &t_Co < 256
     colorscheme default
     set nocursorline " looks bad in this mode
@@ -86,11 +100,12 @@ set smartcase
 " tab completion for files/bufferss
 set wildmode=longest,list
 set wildmenu
+
 " set mouse+=a " enable mouse mode (scrolling, selection, etc)
-" if &term =~ '^screen'
-"    " tmux knows the extended mouse mode
-"    set ttymouse=xterm2
-" endif
+"if &term =~ '^screen'
+   " tmux knows the extended mouse mode
+"   set ttymouse=xterm2
+"endif
 
 "--------------------
 " Misc configurations
@@ -143,6 +158,27 @@ nnoremap <C-n> :set rnu!<CR>
 
 " save read-only files
 command -nargs=0 Sudow w !sudo tee % >/dev/null
+
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
+
+
+""""""""""""""""""""""""""""""
+" => Status line
+""""""""""""""""""""""""""""""
+" Always show the status line
+set laststatus=2
+
+" Format the status line
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+
+:command WQ wq
+:command Wq wq
+:command W w
+:command Ws w !sudo tee % > /dev/null
+:command Q q
 
 "---------------------
 " Plugin configuration
@@ -223,4 +259,17 @@ let g:markdown_fenced_languages = [
 \]
 let g:markdown_syntax_conceal = 0
 
+<<<<<<< HEAD
 
+=======
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Helper functions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    endif
+    return ''
+endfunction
+>>>>>>> d055111e2eddace17333d9137fe3b7634da204f2

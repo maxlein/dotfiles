@@ -2,16 +2,26 @@
     link:
       create: true
       relink: true
+      force: true
 
 - clean: ['~', '~/.config']
 
 - link:
+    ~/.vimrc: vimrc
     ~/.dotfiles: ''
     ~/.vim: vim
-    ~/.vimrc: vimrc
+    ~/.vimrc: vimrc    
+    ~/.screenrc: screenrc
     ~/.config/nvim/init.vim: vimrc
     ~/.vim/colors/solarized.vim: solarized.vim
+    ~/.gitconfig: gitconfig
+    ~/.config/powerline/: 
+        glob: true
+        path: powerline/*
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
-  - [sudo apt install -y neovim, installing neovim]    
+  - [git submodule update --init --recursive, Installing submodules]  
+  - [sudo apt install -y neovim, installing neovim]  
+  - [sudo apt install -y vim-airline, ncdu]  
+  - [bash powerline_install.sh]  
+  - [sudo snap install cheat]
