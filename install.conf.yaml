@@ -8,6 +8,10 @@
 
 - link:
     ~/.vimrc: vimrc
+    ~/.dotfiles: ''
+    ~/.vim: vim
+    ~/.vimrc: vimrc    
+    ~/.screenrc: screenrc
     ~/.config/nvim/init.vim: vimrc
     ~/.vim/colors/solarized.vim: solarized.vim
     ~/.gitconfig: gitconfig
@@ -18,6 +22,6 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [sudo apt install -y neovim, installing neovim]  
-  - [sudo apt install -y vim-airline]  
+  - [sudo apt install -y vim-airline, ncdu]  
   - [bash powerline_install.sh]  
   - [sudo snap install cheat]

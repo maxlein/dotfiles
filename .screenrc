@@ -1,0 +1,2 @@
+defscrollback 100000
+termcapinfo xterm ti@:te@ #allow terminal scrolling in either xterm or PuTTY
