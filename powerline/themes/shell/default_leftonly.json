@@ -4,7 +4,7 @@
 			{
 				"function": "powerline.segments.common.bat.battery",
 				"args": {
-					"gamify": true,
+					"gamify": false,
 					"steps": 4
 				},
 				"priority": 10
